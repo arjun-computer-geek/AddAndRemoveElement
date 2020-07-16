@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adding and removing elements</title>
+</head>
+<body>
+	<form>
+		<div id="contatiner"></div>
+		<input type="button" name="btn" value="Add" onClick="addElement()"> 
+		<span> &nbsp; Add Input box</span>
+	</form>
+
+	<script type="text/javascript">
+		var id = 0;
+
+	function addElement(){
+		id++;
+	    const div = document.createElement('div');
+	    div.id = id;
+	    div.innerHTML = `
+	    <input type="text" name="phone" placeholder="Add Text"/>
+	    <a id="deleteElement" href="" onClick="deleteElement(this)">Remove</a>
+	    `;
+	    // console.log(div)
+	    document.getElementById('contatiner').appendChild(div);
+	}
+
+	function deleteElement(e){
+		console.log(e)
+	    // document.getElementById('contatiner').removeChild(e.parentNode);
+	}
+
+	</script>
+</body>
+</html>
