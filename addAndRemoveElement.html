@@ -6,28 +6,46 @@
 <body>
 	<form>
 		<div id="contatiner"></div>
-		<input type="button" name="btn" value="Add" onClick="addElement()"> 
-		<span> &nbsp; Add Input box</span>
+		<input type="button" name="btn" value="Start" onClick="addElement()"> 
+		<span> &nbsp; Start Writting</span>
 	</form>
 
 	<script type="text/javascript">
-		var id = 0;
+
+		var id = 0; 
+		var i = 0;
 
 	function addElement(){
+
 		id++;
 	    const div = document.createElement('div');
-	    div.id = id;
+	    // div.className = 'id';
 	    div.innerHTML = `
-	    <input type="text" name="phone" placeholder="Add Text"/>
-	    <a id="deleteElement" href="" onClick="deleteElement(this)">Remove</a>
+	    <a id="deleteElement" href="#" role="button" onClick="deleteElement(this)">dlelete</a>
+    	<select name="msg-lebel" id=${id}>
+                <option value="Social" selected> Social </option>
+                <option value="Motivation"> Motivation </option>
+                <option value="Inspirition" > Inspirition </option>
+                <option value="Lession"> Lesson </option>
+                <option value="Other"> Other </option>
+    	</select>
+    	<input type="text" name="phone" placeholder=" Write Message" />
 	    `;
-	    // console.log(div)
 	    document.getElementById('contatiner').appendChild(div);
+
+
+	    (function () {
+	    	document.getElementById(id).options.selectedIndex = i
+			var si = document.getElementById(id).options.selectedIndex;
+			if(i < 4){
+				i = si + 1;
+			}
+			 console.log(si) 
+		})();
 	}
 
 	function deleteElement(e){
-		console.log(e)
-	    // document.getElementById('contatiner').removeChild(e.parentNode);
+	    document.getElementById('contatiner').removeChild(e.parentNode);
 	}
 
 	</script>
